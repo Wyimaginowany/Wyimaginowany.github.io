@@ -1,4 +1,4 @@
-# tournament_bracket
+# Tournament bracket in JS ES6
 Front-end app for generating tournament bracket.
 - adding as many teams and groups as you want,
 - generated bracket won't disapear afetr browser close - app using localStorage,
