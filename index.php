@@ -21,8 +21,13 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="script.php"></script>
-		<script src="script_index.php"></script>
+		<script src="script.js"></script>
+		<script src="script_index.js"></script>
+		<script>
+			let lang = <?= json_encode($text_content) ?>;
+
+		</script>
+
 		<meta name="theme-color" content="#000" />
 	</head>
 
@@ -33,7 +38,7 @@
 		</div>
 		<div id='belka'>
 			<span id="zegarek"></span>
-			<button class='przyciski_belka przyciski_menu_belka' disabled><?php echo $text_content[1]; ?></button>
+			<button class='przyciski_belka przyciski_menu_belka' disabled><?= $text_content[1] ?></button>
 			<button class='przyciski_belka przyciski_menu_belka' disabled><?php echo $text_content[2]; ?></button>
 		</div>
 		<div class="main_top">
@@ -132,10 +137,9 @@
 			</main>
 		</div>
 
-		<div id="cookies_warning" <?php cookie_display(); ?>>
-			<?php echo $text_content[13]; ?> <a href="?a=1" class="link_option"><b><?php echo $text_content[14]; ?></b></a>
+		<div id="cookies_warning">
+			<?php echo $text_content[13]; ?> <a id="cookies_accept" class="link_option"><b><?php echo $text_content[14]; ?></b></a>
 			<?php echo $text_content[15]; ?>
-			<?php $location = "index.php"; cookie_set($location); ?>
 		</div>
 
 		<div id="footer">
@@ -146,9 +150,11 @@
 			</div>
 
 			<div id="social_bar">
-				<a class="social_icon" href="https://www.facebook.com/profile.php?id=100000771247530">f</a>
-				<a class="social_icon" href="https://www.instagram.com/m_pochopien/">i</a>
-				<a class="social_icon" href="https://twitter.com/m_pochopien">t</a>
+				<a class="social_icon" href="https://www.facebook.com/profile.php?id=100000771247530"></a>
+				<a class="social_icon" href="https://www.instagram.com/m_pochopien/"></a>
+				<a class="social_icon" href="https://twitter.com/m_pochopien"></a>
+				<a class="social_icon" href="https://github.com/Wyimaginowany"></a>
+				<a class="social_icon" href="https://www.linkedin.com/in/mpochopien/"></a>
 			</div>
 		</div>
 	</body>

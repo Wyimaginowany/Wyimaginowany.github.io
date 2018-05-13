@@ -1,17 +1,6 @@
-<?php
-  require_once('function.php');
-  if($_COOKIE['lang']=="en"){
-    $text_content = english();
-  }
-  
-  if($_COOKIE['lang']=="pl"){
-    $text_content = polski();
-  }
-?>
-
 document.addEventListener("DOMContentLoaded", () => {
 	let span = document.querySelector("#courtain div span");
-	span.appendChild(document.createTextNode("<?= $text_content[0] ?>"));
+	span.appendChild(document.createTextNode(lang[0]));
 
 	if (localStorage.getItem("history") === null) {
 		localStorage.setItem("history", JSON.stringify([]));
@@ -100,11 +89,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		}
 
 		if (document.getElementsByClassName("przycisk_form")[0].value == "" || document.getElementsByClassName("przycisk_form")[1].value == "" || document.getElementsByClassName("przycisk_form")[0].value == "0" || document.getElementsByClassName("przycisk_form")[1].value == "0") {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[18] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[18];
 			document.getElementsByClassName("przycisk_form")[6].disabled = true;
 			document.getElementsByClassName("przycisk_form")[5].disabled = true;
 		} else {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[23] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[23];
 			document.getElementsByClassName("przycisk_form")[6].disabled = false;
 			document.getElementsByClassName("przycisk_form")[5].disabled = false;
 		}
@@ -129,7 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.getElementsByClassName("przycisk_form")[5].setAttribute("max", Math.floor(document.getElementsByClassName("przycisk_form")[0].value / document.getElementsByClassName("przycisk_form")[1].value));
 
 		if (teams_names.length >= localStorage.getItem("teams")) {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[28] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[28];
 			document.getElementsByClassName("przycisk_form")[6].disabled = true;
 		}
 
@@ -166,10 +155,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	document.getElementsByClassName("przycisk_form")[0].addEventListener("input", () => {
 		if (document.getElementsByClassName("przycisk_form")[0].value == "" || document.getElementsByClassName("przycisk_form")[1].value == "" || document.getElementsByClassName("przycisk_form")[0].value == "0" || document.getElementsByClassName("przycisk_form")[1].value == "0") {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[18] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[18];
 			document.getElementsByClassName("przycisk_form")[6].disabled = true;
 		} else {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[23] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[23];
 			document.getElementsByClassName("przycisk_form")[6].disabled = false;
 		}
 
@@ -183,12 +172,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	document.getElementsByClassName("przycisk_form")[1].addEventListener("input", () => {
 		if (document.getElementsByClassName("przycisk_form")[0].value == "" || document.getElementsByClassName("przycisk_form")[1].value == "" || document.getElementsByClassName("przycisk_form")[0].value == "0" || document.getElementsByClassName("przycisk_form")[1].value == "0") {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[18] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[18];
 			document.getElementsByClassName("przycisk_form")[6].disabled = true;
 			document.getElementsByClassName("przycisk_form")[5].disabled = true;
 			document.getElementsByClassName("przycisk_form")[5].value = "";
 		} else {
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[23] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[23];
 			document.getElementsByClassName("przycisk_form")[6].disabled = false;
 			document.getElementsByClassName("przycisk_form")[5].disabled = false;
 		}
@@ -199,7 +188,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			localStorage.setItem("teams", document.getElementsByClassName("przycisk_form")[0].value);
 			document.getElementById("number_of_teams_total").innerHTML = localStorage.getItem("teams");
 			document.getElementsByClassName("przycisk_form")[1].value = "";
-			document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[18] ?>";
+			document.getElementsByClassName("przycisk_form")[6].placeholder = lang[18];
 			document.getElementsByClassName("przycisk_form")[6].disabled = true;
 			document.getElementsByClassName("przycisk_form")[1].setAttribute("max", Math.floor(document.getElementsByClassName("przycisk_form")[0].value / 2));
 		} else {
@@ -326,7 +315,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				}
 
 				if (teams_names.length >= localStorage.getItem("teams")) {
-					document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[28] ?>";
+					document.getElementsByClassName("przycisk_form")[6].placeholder = lang[28];
 					document.getElementsByClassName("przycisk_form")[6].disabled = true;
 				}
 				document.querySelectorAll(".przycisk_form")[6].value = "";
@@ -371,7 +360,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				span.remove();
 				input.remove();
 				br.remove();
-				document.getElementsByClassName("przycisk_form")[6].placeholder = "<?= $text_content[23] ?>";
+				document.getElementsByClassName("przycisk_form")[6].placeholder = lang[23];
 				document.getElementsByClassName("przycisk_form")[6].disabled = false;
 				let teams_names = JSON.parse(localStorage.getItem("teams_names"));
 				for (let i = 0; i < teams_names.length; i++) {
@@ -731,7 +720,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				input_button.classList.add("przycisk_form_tournament_button");
 				input_button.id = matches[i - 1][k][4];
 				input_button.setAttribute("type", "button");
-				input_button.setAttribute("value", "<?= $text_content[34] ?>");
+				input_button.setAttribute("value", lang[34]);
 
 				if (matches[i - 1][k][2] != "" && matches[i - 1][k][3] != "") {
 					input_top.disabled = true;
@@ -839,13 +828,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		let next = document.createElement("input");
 		next.id = "przycisk_form_next";
 		next.setAttribute("type", "button");
-		next.setAttribute("value", "<?= $text_content[35] ?>");
+		next.setAttribute("value", lang[35]);
 		document.getElementsByClassName("main")[1].appendChild(next);
 
 		let reset = document.createElement("input");
 		reset.id = "przycisk_form_reset";
 		reset.setAttribute("type", "button");
-		reset.setAttribute("value", "<?= $text_content[36] ?>");
+		reset.setAttribute("value", lang[36]);
 		document.getElementsByClassName("main")[1].appendChild(reset);
 
 		document.getElementById("przycisk_form_next").addEventListener("click", () => {
@@ -1022,8 +1011,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 		document.getElementById("przycisk_form_reset").addEventListener("click", () => {
 			let history = localStorage.getItem("history");
+			let cookies = localStorage.getItem("cookies");
 			localStorage.clear();
 			localStorage.setItem("history", history);
+			localStorage.setItem("cookies", cookies);
 			location.reload();
 		});
 	}
@@ -1063,7 +1054,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				input_button.classList.add("przycisk_form_tournament_button");
 				input_button.id = matches_next[i][j][4];
 				input_button.setAttribute("type", "button");
-				input_button.setAttribute("value", "<?= $text_content[34] ?>");
+				input_button.setAttribute("value", lang[34]);
 
 				let temp_team_top = document.createTextNode(matches_next[i][j][0]);
 				let temp_team_bottom = document.createTextNode(matches_next[i][j][1]);
@@ -1238,7 +1229,7 @@ document.addEventListener("DOMContentLoaded", () => {
 		let winner_box = document.createElement("div");
 		winner_box.id = "winner_box";
 		let h2 = document.createElement("h2");
-		let header = document.createTextNode("<?= $text_content[37] ?>");
+		let header = document.createTextNode(lang[37]);
 
 		let winner, winner_statistics;
 
@@ -1265,13 +1256,13 @@ document.addEventListener("DOMContentLoaded", () => {
 		winner_box.appendChild(winner_name);
 		winner_box.appendChild(document.createElement("br"));
 		winner_box.appendChild(document.createElement("br"));
-		winner_box.appendChild(document.createTextNode("<?= $text_content[38] ?>: "));
+		winner_box.appendChild(document.createTextNode(lang[38]+": "));
 		winner_box.appendChild(document.createTextNode(winner_statistics["win"]));
 		winner_box.appendChild(document.createElement("br"));
-		winner_box.appendChild(document.createTextNode("<?= $text_content[39] ?>: "));
+		winner_box.appendChild(document.createTextNode(lang[39]+": "));
 		winner_box.appendChild(document.createTextNode(winner_statistics["draw"]));
 		winner_box.appendChild(document.createElement("br"));
-		winner_box.appendChild(document.createTextNode("<?= $text_content[40] ?>: "));
+		winner_box.appendChild(document.createTextNode(lang[40]+": "));
 		winner_box.appendChild(document.createTextNode(winner_statistics["lose"]));
 		winner_box.appendChild(document.createElement("br"));
 		document.querySelectorAll(".main_top div")[1].appendChild(winner_box);

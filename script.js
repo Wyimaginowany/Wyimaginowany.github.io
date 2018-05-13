@@ -1,15 +1,14 @@
-<?php
-  require_once('function.php');
-  if($_COOKIE['lang']=="en"){
-    $text_content = english();
-  }
-  
-  if($_COOKIE['lang']=="pl"){
-    $text_content = polski();
-  }
-?>
-
 document.addEventListener("DOMContentLoaded", () => {
+	if (localStorage.getItem("cookies") === null || localStorage.getItem("cookies") == "false") {
+		localStorage.setItem("cookies", false);
+		document.getElementById("cookies_warning").style.display = "unset";
+	}
+
+	document.getElementById("cookies_accept").addEventListener("click", () => {
+		localStorage.setItem("cookies", true);
+		document.getElementById("cookies_warning").style.display = "none";
+	});
+
 	let span = document.createElement("span");
 	span.style.fontSize = "8vw";
 	span.style.fontFamily = "roboto_regular";
@@ -19,7 +18,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	setTimeout(() => {
 		document.getElementById("courtain").style.marginLeft = "-100%";
 		setTimeout(() => {
-		document.getElementById("courtain").style.marginLeft = "-100%";
+			document.getElementById("courtain").style.marginLeft = "-100%";
 			document.getElementsByClassName("przyciski_menu_belka")[0].disabled = false;
 			document.getElementsByClassName("przyciski_menu_belka")[1].disabled = false;
 		}, 2000);
@@ -30,7 +29,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	}, 2500);
 
 	document.getElementsByClassName("przyciski_menu_belka")[1].addEventListener("click", () => {
-		span.appendChild(document.createTextNode("<?= $text_content[4] ?>"));
+		span.appendChild(document.createTextNode(lang[4]));
 		document.getElementById("courtain").style.marginLeft = "0%";
 
 		if (document.getElementById("courtain").style.marginLeft == "0%") {
@@ -41,7 +40,7 @@ document.addEventListener("DOMContentLoaded", () => {
 	});
 
 	document.getElementsByClassName("przyciski_menu_belka")[0].addEventListener("click", () => {
-		span.appendChild(document.createTextNode("<?= $text_content[0] ?>"));
+		span.appendChild(document.createTextNode(lang[0]));
 		document.getElementById("courtain").style.marginLeft = "0%";
 
 		if (document.getElementById("courtain").style.marginLeft == "0%") {

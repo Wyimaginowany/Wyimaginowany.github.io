@@ -21,8 +21,12 @@
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
 		<link rel="stylesheet" type="text/css" href="style.css">
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<script src="script.php"></script>
-		<script src="script_history.php"></script>
+		<script src="script.js"></script>
+		<script src="script_history.js"></script>
+		<script>
+			let lang = <?= json_encode($text_content) ?>;
+
+		</script>
 		<meta name="theme-color" content="#000" />
 	</head>
 
@@ -49,23 +53,24 @@
 			</div>
 		</div>
 
-		<div id="cookies_warning" <?php cookie_display(); ?>>
-			<?php echo $text_content[13]; ?> <a href="?a=1" class="link_option"><b><?php echo $text_content[14]; ?></b></a>
+		<div id="cookies_warning">
+			<?php echo $text_content[13]; ?> <a id="cookies_accept" class="link_option"><b><?php echo $text_content[14]; ?></b></a>
 			<?php echo $text_content[15]; ?>
-			<?php $location = "history.php"; cookie_set($location); ?>
 		</div>
 
 		<div id="footer">
 			<div id="copyright">
 				<span style="color: rgb(156, 159, 163);">&copy 2018</span> Michał Pochopień <br>
-				<a href="?l=pl">PL</a>/<a href="?l=en">ENG</a>
+				<a href="?l=pl">PL</a> | <a href="?l=en">ENG</a>
 				<?php $location = "history.php"; change_lang($location); ?>
 			</div>
 
 			<div id="social_bar">
-				<a class="social_icon" href="https://www.facebook.com/profile.php?id=100000771247530">f</a>
-				<a class="social_icon" href="https://www.instagram.com/m_pochopien/">i</a>
-				<a class="social_icon" href="https://twitter.com/m_pochopien">t</a>
+				<a class="social_icon" href="https://www.facebook.com/profile.php?id=100000771247530"></a>
+				<a class="social_icon" href="https://www.instagram.com/m_pochopien/"></a>
+				<a class="social_icon" href="https://twitter.com/m_pochopien"></a>
+				<a class="social_icon" href="https://github.com/Wyimaginowany"></a>
+				<a class="social_icon" href="https://www.linkedin.com/in/mpochopien/"></a>
 			</div>
 		</div>
 	</body>

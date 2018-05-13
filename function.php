@@ -118,18 +118,3 @@ function polski() {
 		"Resetuj historię" //46
     );
 }
-
-function cookie_set($location)
-{
-    if(isset($_GET['a'])) {
-        setcookie("cookie_accept", "1", time()+(31 * 24 * 60 * 60));
-        header("Location: $location");
-    }
-}
-
-function cookie_display()
-{
-    if(isset($_COOKIE['cookie_accept'])) {
-        echo "style='display: none;'"; 
-    }
-}

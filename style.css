@@ -18,42 +18,37 @@ html {
 
 @font-face {
 	font-family: roboto_light;
-	src: url("Roboto-Light.ttf");
+	src: url("fonts/Roboto-Light.ttf");
 }
 
 @font-face {
 	font-family: roboto_regular;
-	src: url("Roboto-Regular.ttf");
+	src: url("fonts/Roboto-Regular.ttf");
 }
 
 @font-face {
 	font-family: roboto_bold;
-	src: url("Roboto-Bold.ttf");
-}
-
-@font-face {
-	font-family: roboto_medium;
-	src: url("Roboto-Medium.ttf");
+	src: url("fonts/Roboto-Bold.ttf");
 }
 
 @font-face {
 	font-family: roboto_bold;
-	src: url("Roboto-Bold.ttf");
+	src: url("fonts/Roboto-Bold.ttf");
 }
 
 @font-face {
 	font-family: roboto_thin;
-	src: url("Roboto-Thin.ttf");
+	src: url("fonts/Roboto-Thin.ttf");
 }
 
 @font-face {
 	font-family: icons;
-	src: url("dripicons-v2.ttf");
+	src: url("fonts/dripicons-v2.ttf");
 }
 
 @font-face {
 	font-family: social;
-	src: url("social_media.otf");
+	src: url("fonts/Socicon.ttf");
 }
 
 #courtain {
@@ -117,8 +112,9 @@ html {
 	height: 60px;
 	right: 5%;
 	top: 25%;
-	font-size: 50px;
+	font-size: 30px;
 	text-align: center;
+	letter-spacing: 5px;
 }
 
 #social_bar a {
@@ -126,8 +122,26 @@ html {
 	text-decoration: none;
 }
 
-#social_bar a:hover {
-	color: rgb(156, 159, 163);
+#social_bar a:first-child:hover {
+	color: #3e5b98;
+}
+
+#social_bar a:nth-child(2):hover {
+	background: -webkit-linear-gradient(top left, #8A3AB9 0%, #FBAD50 100%);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#social_bar a:nth-child(3):hover {
+	color: #4da7de;
+}
+
+#social_bar a:nth-child(4):hover {
+	color: #221e1b;
+}
+
+#social_bar a:nth-child(5):hover {
+	color: #3371b7;
 }
 
 #copyright {
@@ -256,6 +270,7 @@ html {
 #copyright a {
 	color: #fff;
 	text-decoration: none;
+	cursor: pointer;
 }
 
 #copyright a:hover {
@@ -402,6 +417,11 @@ html {
 	bottom: 0;
 	position: fixed;
 	z-index: 100;
+	display: none;
+}
+
+#cookies_warning a {
+	cursor: pointer;
 }
 
 .link_option {
