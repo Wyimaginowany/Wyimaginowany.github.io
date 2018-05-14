@@ -508,18 +508,21 @@ body::-webkit-scrollbar-corner {
 	padding: 10px;
 }
 
-@media screen and (max-width: 750px) {
+@media screen and (max-width: 480px) {
 	#copyright {
-		font-size: 15px;
+		font-size: 12px;
 		width: 50%;
 	}
 
 	#social_bar {
+		position: unset;
 		font-size: 30px;
-		right: 1%;
-		top: 5%;
+		margin: 0 auto;
+		margin-top: -5%;
 	}
+}
 
+@media screen and (max-width: 750px) {
 	.pole_tekstowe {
 		width: 80%;
 	}
